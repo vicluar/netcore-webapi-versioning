@@ -8,7 +8,8 @@ using WebAPI_Versioning.ApiModel;
 namespace WebAPI_Versioning.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/[controller]")]
     public class DarkKnightTrilogyController : ControllerBase
     {
         public IActionResult GetCharacters()
