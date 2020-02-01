@@ -10,6 +10,7 @@ namespace WebAPI_Versioning.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]
+    [ApiVersion("3.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class DarkKnightTrilogyController : ControllerBase
     {
@@ -39,7 +40,24 @@ namespace WebAPI_Versioning.Controllers
                 new Character { FirstName = "James", LastName = "Gordon", AlterEgo = "", Actor = "Gary Oldman" },
                 new Character { FirstName = "Alfred", LastName = "Pennyworth", AlterEgo = "", Actor = "Michael Caine" },
                 new Character { FirstName = "", LastName = "", AlterEgo = "The Joker", Actor = "Heath Ledger" },
-                new Character { FirstName = "Harvey", LastName = "Dent", AlterEgo = "Two Faces", Actor = "Aaron Eckhart" },
+                new Character { FirstName = "Harvey", LastName = "Dent", AlterEgo = "Two Faces", Actor = "Aaron Eckhart" }
+            };
+
+            return new OkObjectResult(result);
+        }
+
+        [HttpGet, MapToApiVersion("3.0")]
+        public IActionResult GetCharactersV3()
+        {
+            var result = new List<Character>
+            {
+                new Character { FirstName = "Bruce", LastName = "Wayne", AlterEgo = "Batman", Actor = "Christian Bale" },
+                new Character { FirstName = "Rachel", LastName = "Dawes", AlterEgo = "", Actor = "Maggie Gyllenhaal" },
+                new Character { FirstName = "James", LastName = "Gordon", AlterEgo = "", Actor = "Gary Oldman" },
+                new Character { FirstName = "Alfred", LastName = "Pennyworth", AlterEgo = "", Actor = "Michael Caine" },
+                new Character { FirstName = "Selina", LastName = "Kyle", AlterEgo = "Catwoman", Actor = "Anne Hathaway" },
+                new Character { FirstName = "", LastName = "", AlterEgo = "Bane", Actor = "Tom Hardy" },
+                new Character { FirstName = "Miranda", LastName = "Tate", AlterEgo = "Talia al Ghul", Actor = "Marion Cotillard" }
             };
 
             return new OkObjectResult(result);
