@@ -10,5 +10,6 @@ namespace WebAPI_Versioning.ApiModel
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string AlterEgo { get; set; }
+        public string Actor { get; set; }
     }
 }
